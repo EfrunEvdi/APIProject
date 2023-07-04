@@ -1,0 +1,70 @@
+﻿@model CreateNewUserDto
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kayıt Formu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" href="~/Register/dist/style.css">
+</head>
+<body>
+    <!-- partial:index.partial.html -->
+    <div class="container">
+        <div class="text">Kayıt Formu</div>
+        <form action="#" method="post">
+            <div class="form-row">
+                <div class="input-data">
+                    <input asp-for="Name" type="text" required>
+                    <div class="underline"></div>
+                    <label for="">İsim</label>
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="input-data">
+                    <input asp-for="Surname" type="text" required>
+                    <div class="underline"></div>
+                    <label for="">Soyisim</label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="input-data">
+                    <input asp-for="Mail" type="text" required>
+                    <div class="underline"></div>
+                    <label for="">E-Posta Adresi</label>
+                </div>
+                <div class="input-data">
+                    <input asp-for="Username" type="text" required>
+                    <div class="underline"></div>
+                    <label for="">Kullanıcı Adı</label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="input-data">
+                    <input asp-for="Password" type="password" required>
+                    <div class="underline"></div>
+                    <label for="">Şifre</label>
+                </div>
+                <div class="input-data">
+                    <input asp-for="ConfirmPassword" type="password" required>
+                    <div class="underline"></div>
+                    <label for="">Şifre Tekrarı</label>
+                </div>
+            </div>
+
+            <div class="form-row submit-btn">
+                <div class="input-data">
+                    <div class="inner"></div>
+                    <input type="submit" value="Kayıt Ol!">
+                </div>
+            </div>
+
+            <label for="" class="mb-5 login-form__footer">Zaten bir hesabın var mı?&nbsp;<a href="/Login/Index"> Giriş Yap!</a></label>
+        </form>
+    </div>
+    <!-- partial -->
+</body>
+</html>

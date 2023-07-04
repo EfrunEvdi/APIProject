@@ -1,0 +1,47 @@
+﻿@model LoginUserDto
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Giriş Formu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" href="~/Register/dist/style.css">
+</head>
+<body>
+    <!-- partial:index.partial.html -->
+    <div class="container">
+        <div class="text">Giriş Formu</div>
+        <form action="#" method="post">
+            <div class="form-row">
+                <div class="input-data">
+                    <input asp-for="Username" type="text" required>
+                    <div class="underline"></div>
+                    <label for="">Kullanıcı Adı</label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="input-data">
+                    <input asp-for="Password" type="password" required>
+                    <div class="underline"></div>
+                    <label for="">Şifre</label>
+                </div>
+            </div>
+
+            <div class="form-row submit-btn">
+                <div class="input-data">
+                    <div class="inner"></div>
+                    <input type="submit" value="Gİrİş Yap!">
+                </div>
+            </div>
+
+            <label for="" class="mb-5 login-form__footer">Henüz bir hesabın yok mu?&nbsp;<a href="/Register/Index"> Giriş Yap!</a></label>
+        </form>
+    </div>
+    <!-- partial -->
+</body>
+</html>
