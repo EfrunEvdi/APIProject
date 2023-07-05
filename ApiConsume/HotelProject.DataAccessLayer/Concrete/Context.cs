@@ -16,6 +16,8 @@ namespace HotelProject.DataAccessLayer.Concrete
             optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=APIDB;Integrated Security=True;");
         }
 
+        public DbSet<About> Abouts { get; set; }
+        public DbSet<Booking> Bookings { get; set; }
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Service> Services { get; set; }
         public DbSet<Staff> Staffs { get; set; }
