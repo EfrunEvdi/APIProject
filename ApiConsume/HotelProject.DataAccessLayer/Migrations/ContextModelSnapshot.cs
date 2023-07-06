@@ -167,10 +167,10 @@ namespace HotelProject.DataAccessLayer.Migrations
                     b.Property<string>("AdultCount")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CheckOut")
+                    b.Property<DateTime>("CheckIn")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("Checkin")
+                    b.Property<DateTime>("CheckOut")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ChildCount")

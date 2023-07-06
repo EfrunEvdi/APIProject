@@ -11,11 +11,21 @@ namespace HotelProject.BusinessLayer.Concrete
 {
     public class BookingManager : IBookingService
     {
-        private IBookingDal _bookingDal;
+        private readonly IBookingDal _bookingDal;
 
         public BookingManager(IBookingDal bookingDal)
         {
             _bookingDal = bookingDal;
+        }
+
+        public void TBookingStatusChangeApproved(Booking booking)
+        {
+            _bookingDal.BookingStatusChangeApproved(booking);
+        }
+
+        public void TBookingStatusChangeApproved2(int id)
+        {
+            _bookingDal.BookingStatusChangeApproved2(id);
         }
 
         public void TDelete(Booking t)

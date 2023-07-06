@@ -1,5 +1,4 @@
-﻿using HotelProject.BusinessLayer.Abstract;
-using HotelProject.EntityLayer.Concrete;
+﻿using HotelProject.EntityLayer.Concrete;
 using HotelProject.WebUI.Dtos.ServiceDto;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
