@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -25,8 +26,8 @@ namespace HotelProject.WebUI.ViewComponents.Default
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
                 var values = JsonConvert.DeserializeObject<List<ResultRoomDto>>(jsonData);
-
-                return View(values);
+                var roomList = values.Take(3).ToList();
+                return View(roomList);
             }
 
             return View();

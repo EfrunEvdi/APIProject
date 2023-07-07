@@ -1,0 +1,49 @@
+﻿<!-- Page Header Start -->
+<div class="container-fluid page-header mb-5 p-0" style="background-image: url(/hotel-html-template/img/carousel-1.jpg);">
+    <div class="container-fluid page-header-inner py-5">
+        <div class="container text-center pb-5">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">Contact</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center text-uppercase">
+                    <li class="breadcrumb-item"><a href="/Default/Index">Ana Sayfa</a></li>
+                    <li class="breadcrumb-item"><a href="#">Sayfalar</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">İletİşİm</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+<!-- Contact Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title text-center text-primary text-uppercase">Bİze Ulaşın</h6>
+            <h1 class="mb-5"><span class="text-primary text-uppercase">Tüm sorularınız</span> İçin Bize Yazabilirsiniz</h1>
+        </div>
+        <div class="row g-4">
+            <div class="col-12">
+                <div class="row gy-4">
+                    <div class="col-md-4">
+                        <h6 class="section-title text-start text-primary text-uppercase">Rezeryasyon</h6>
+                        <p><i class="fa fa-envelope-open text-primary me-2"></i>booking@apihotel.com</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h6 class="section-title text-start text-primary text-uppercase">Genel</h6>
+                        <p><i class="fa fa-envelope-open text-primary me-2"></i>general@apihotel.com</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h6 class="section-title text-start text-primary text-uppercase">Teknİk</h6>
+                        <p><i class="fa fa-envelope-open text-primary me-2"></i>technical@apihotel.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 wow fadeIn" data-wow-delay="0.1s">
+                <iframe class="position-relative rounded w-100 h-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d770809.0860158126!2d28.45174621544522!3d41.003964328513874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caa7040068086b%3A0xe1ccfe98bc01b0d0!2zxLBzdGFuYnVs!5e0!3m2!1str!2str!4v1688734053773!5m2!1str!2str" frameborder="0" style="min-height: 350px; border:0;" allowfullscreen="" aria-hidden="false"
+                        tabindex="0"></iframe>
+            </div>
+            @await Html.PartialAsync("/Views/Contact/SendMessage.cshtml")
+        </div>
+    </div>
+</div>
+<!-- Contact End -->

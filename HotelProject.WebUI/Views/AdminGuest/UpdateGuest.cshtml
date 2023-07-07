@@ -1,0 +1,53 @@
+﻿@model UpdateGuestDto
+
+@{
+    ViewData["Title"] = "UpdateGuest";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<div class="row page-titles mx-0">
+    <div class="col p-md-0">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/AdminGuest/Index">Misafirler</a></li>
+            <li class="breadcrumb-item active"><a href="/AdminGuest/UpdateGuest">Misafir Güncelleme Sayfası</a></li>
+        </ol>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Misafir Güncelleme Sayfası</h4>
+                    <p class="text-muted m-b-15 f-s-12">Misafir bilgilerini <code>eksiksiz</code> doldurunuz.</p>
+                    <div class="basic-form">
+                        <form method="post">
+                            <input type="hidden" asp-for="GuestID" />
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Misafir Adı</label>
+                                <input type="text" asp-for="Name" class="form-control input-rounded col-sm-10" placeholder="Misafirin isim bilgisini giriniz.">
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+                            <hr />
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Misafir Soyadı</label>
+                                <input type="text" asp-for="Surname" class="form-control input-rounded col-sm-10" placeholder="Misafirin soyisim bilgisini giriniz.">
+                                <span asp-validation-for="Surname" class="text-danger"></span>
+                            </div>
+                            <hr />
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Şehir</label>
+                                <textarea asp-for="City" class="form-control input-rounded col-sm-10" placeholder="Misafirin şehir bilgisini giriniz."></textarea>
+                                <span asp-validation-for="City" class="text-danger"></span>
+                            </div>
+                            <hr />
+                            <button class="btn btn-outline-primary col-12">Misafiri Güncelle!</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

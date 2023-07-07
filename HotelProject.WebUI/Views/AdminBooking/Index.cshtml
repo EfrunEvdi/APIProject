@@ -3,14 +3,13 @@
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
-    int count;
 }
 
 <div class="row page-titles mx-0">
     <div class="col p-md-0">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/Dashboard/Index">Ana Sayfa</a></li>
-            <li class="breadcrumb-item active"><a href="/Booking/Index">Rezervasyonlar</a></li>
+            <li class="breadcrumb-item active"><a href="/AdminBooking/Index">Rezervasyonlar</a></li>
         </ol>
     </div>
 </div>
@@ -56,16 +55,16 @@
                                         <td>
                                             <span>
                                                 <a href="#" data-toggle="tooltip" data-placement="top" title="Detaylar"><i class="fa fa-file-text-o color-primary"></i></a>
-                                                <a href="/BookingAdmin/ApprovedReservation/@item.BookingID" data-toggle="tooltip" data-placement="top" title="Onayla"><i class="fa fa-check-square-o color-muted m-r-5"></i></a>
-                                                <a href="/BookingAdmin/DeleteBooking/@item.BookingID" data-toggle="tooltip" data-placement="top" title="İptal Et"><i class="fa fa-close color-danger"></i></a>
-                                                <a href="/BookingAdmin/UpdateBooking/@item.BookingID" data-toggle="tooltip" data-placement="top" title="Güncelle"><i class="fa fa-pencil color-muted m-r-5"></i></a>
+                                                <a href="/AdminBooking/ApprovedReservation/@item.BookingID" data-toggle="tooltip" data-placement="top" title="Onayla"><i class="fa fa-check-square-o color-muted m-r-5"></i></a>
+                                                <a href="/AdminBooking/DeleteBooking/@item.BookingID" data-toggle="tooltip" data-placement="top" title="İptal Et"><i class="fa fa-close color-danger"></i></a>
+                                                <a href="/AdminBooking/UpdateBooking/@item.BookingID" data-toggle="tooltip" data-placement="top" title="Güncelle"><i class="fa fa-pencil color-muted m-r-5"></i></a>
                                             </span>
                                         </td>
                                     </tr>
                                 }
                             </tbody>
                         </table>
-                        <a href="/Booking/AddBooking" class="btn btn-outline-primary col-12">Yeni Rezeryasyon Ekle!</a>
+                        <a href="/AdminBooking/AddBooking" class="btn btn-outline-primary col-12">Yeni Rezeryasyon Ekle!</a>
                     </div>
                 </div>
             </div>
