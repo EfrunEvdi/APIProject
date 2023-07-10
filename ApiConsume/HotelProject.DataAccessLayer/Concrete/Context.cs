@@ -21,6 +21,7 @@ namespace HotelProject.DataAccessLayer.Concrete
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Guest> Guests { get; set; }
         public DbSet<Room> Rooms { get; set; }
+        public DbSet<SendMessage> SendMessages { get; set; }
         public DbSet<Service> Services { get; set; }
         public DbSet<Staff> Staffs { get; set; }
         public DbSet<Subscribe> Subscribes { get; set; }

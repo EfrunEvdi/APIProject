@@ -1,0 +1,79 @@
+﻿@model List<ResultSendboxDto>
+
+@{
+    ViewData["Title"] = "Sendbox";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<div class="row page-titles mx-0">
+    <div class="col p-md-0">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
+            <li class="breadcrumb-item active"><a href="javascript:void(0)">Giden Mesajlar</a></li>
+        </ol>
+    </div>
+</div>
+<!-- row -->
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="email-left-box">
+                        @await Html.PartialAsync("SidebarAdminContactPartial")
+                        @await Html.PartialAsync("SidebarAdminContactKategoriPartial")
+                    </div>
+                    <div class="email-right-box">
+                        <div role="toolbar" class="toolbar">
+                            <div class="btn-group">
+                                <button aria-expanded="false" data-toggle="dropdown" class="btn btn-dark dropdown-toggle" type="button">
+                                    Daha Fazla <span class="caret m-l-5"></span>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <span class="dropdown-header">Ayarlar :</span>  <a href="javascript: void(0);" class="dropdown-item">Okunmamaış Olarak İşaretle</a>  <a href="javascript: void(0);" class="dropdown-item">Görevlere Ekle</a>  <a href="javascript: void(0);" class="dropdown-item">Yıldızla</a>  <a href="javascript: void(0);" class="dropdown-item">Sessize Al</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="email-list m-t-15">
+                            @foreach (var item in Model)
+                            {
+                                <div class="message">
+                                    <a href="/AdminContact/SendboxMessageDetails/@item.SendMessageID">
+                                        <div class="col-mail col-mail-1">
+                                            <div class="email-checkbox">
+                                                <input type="checkbox" id="chk2">
+                                                <label class="toggle" for="chk2"></label>
+                                            </div><span class="star-toggle ti-star"></span>
+                                        </div>
+                                        <div class="col-mail col-mail-2">
+                                            <div class="subject"><b>@item.ReceiverName </b> @item.Content</div>
+                                            <div class="date">@(((DateTime)item.Date).ToString("dd MMMM"))</div>
+                                        </div>
+                                    </a>
+                                </div>
+                            }
+                        </div>
+                        <!-- panel -->
+                        <div class="row">
+                            <div class="col-7">
+                                <div class="text-left">1 - 20</div>
+                            </div>
+                            <div class="col-5">
+                                <div class="btn-group float-right">
+                                    <button class="btn btn-gradient" type="button">
+                                        <i class="fa fa-angle-left"></i>
+                                    </button>
+                                    <button class="btn btn-dark" type="button">
+                                        <i class="fa fa-angle-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

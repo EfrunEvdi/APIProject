@@ -1,0 +1,66 @@
+﻿@model SGetMessageByIDDto
+
+@{
+    ViewData["Title"] = "SendboxMessageDetails";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<div class="row page-titles mx-0">
+    <div class="col p-md-0">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Giden Kutusu</a></li>
+            <li class="breadcrumb-item active"><a href="javascript:void(0)">Mesaj Detayları</a></li>
+        </ol>
+    </div>
+</div>
+<!-- row -->
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="email-left-box">
+                        @await Html.PartialAsync("SidebarAdminContactPartial")
+                        @await Html.PartialAsync("SidebarAdminContactKategoriPartial")
+                    </div>
+                    <div class="email-right-box">
+                        <div role="toolbar" class="toolbar">
+                            <div class="btn-group">
+                                <button aria-expanded="false" data-toggle="dropdown" class="btn btn-dark dropdown-toggle" type="button">
+                                    Daha Fazla <span class="caret m-l-5"></span>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <span class="dropdown-header">Ayarlar :</span>  <a href="javascript: void(0);" class="dropdown-item">Okunmamaış Olarak İşaretle</a>  <a href="javascript: void(0);" class="dropdown-item">Görevlere Ekle</a>  <a href="javascript: void(0);" class="dropdown-item">Yıldızla</a>  <a href="javascript: void(0);" class="dropdown-item">Sessize Al</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="read-content">
+                            <div class="media pt-5">
+                                <img class="mr-3 rounded-circle" src="~/adminweb/images/loader.gif">
+                                <div class="media-body">
+                                    <h5 class="m-b-3">@Model.ReceiverName</h5>
+                                    <p class="m-b-2">@(((DateTime)Model.Date).ToString("dd MMMM yyyy"))</p>
+                                </div>
+
+                            </div>
+                            <hr>
+                            <div class="media mb-4 mt-1">
+                                <div class="media-body">
+                                    <span class="float-right">07:23 AM</span>
+                                    <h4 class="m-0 text-primary">@Model.Title</h4><small class="text-muted">Gönderen: @Model.ReceiverMail</small>
+                                </div>
+                            </div>
+                            <p>@Model.Content</p>
+
+                            <h5 class="m-b-5 p-t-15">@Model.ReceiverName</h5>
+
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- #/ container -->
