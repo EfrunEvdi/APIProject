@@ -1,0 +1,52 @@
+﻿@model List<HotelProject.EntityLayer.Concrete.AppUser>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<div class="row page-titles mx-0">
+    <div class="col p-md-0">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/Dashboard/Index">Ana Sayfa</a></li>
+            <li class="breadcrumb-item active"><a href="/AdminUser/Index">Kullanıcılar</a></li>
+        </ol>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Kullanıcılar</h4>
+                    <div class="custom-media-object-2">
+                        @foreach (var item in Model)
+                        {
+                            <div class="media border-bottom-1 p-t-15 my-3">
+                                <img class="mr-3 rounded-circle" src="@item.ImageURL" alt="">
+                                <div class="media-body">
+                                    <div class="row">
+                                        <div class="col-lg-5">
+                                            <h5>@item.Name @item.Surname</h5>
+                                            <p>@item.Email</p>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <p class="text-muted f-s-14">@item.City</p>
+                                        </div>
+                                        <div class="col-lg-5 text-right">
+                                            <h5 class="text-muted"><i class="cc BTCD m-r-5"></i> <span class="BTCD m-l-10">@item.UserName</span></h5>
+                                            <p class="f-s-13 text-muted">@item.PhoneNumber</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <a href="/Register/Index/" class="btn btn-outline-primary col-12">Yeni Kullanıcı Ekle!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
