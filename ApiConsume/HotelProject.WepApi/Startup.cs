@@ -68,6 +68,9 @@ namespace HotelProject.WepApi
             services.AddScoped<IWorkLocationDal, EfWorkLocationDal>();
             services.AddScoped<IWorkLocationService, WorkLocationManager>();
 
+            services.AddScoped<IAppUserDal, EfAppUserDal>();
+            services.AddScoped<IAppUserService, AppUserManager>();
+
 
             services.AddAutoMapper(typeof(Startup));
 
@@ -79,7 +82,9 @@ namespace HotelProject.WepApi
                 });
             }); // Consüme edilme metodu
 
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(options =>
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "HotelProject.WepApi", Version = "v1" });

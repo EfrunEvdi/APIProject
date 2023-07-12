@@ -1,7 +1,7 @@
-﻿@model List<ResultAppUserDto>
+﻿@model List<ResultAppUserWithWorkLocationDto>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "UserList";
     Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
 }
 
@@ -9,7 +9,7 @@
     <div class="col p-md-0">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/Dashboard/Index">Ana Sayfa</a></li>
-            <li class="breadcrumb-item active"><a href="/AdminUser/Index">Kullanıcılar</a></li>
+            <li class="breadcrumb-item active"><a href="/AppUserWorkLocation/UserList">Kullanıcılar</a></li>
         </ol>
     </div>
 </div>
@@ -39,17 +39,16 @@
                                         {
                                             <div class="col-lg-2">
                                                 <h5 class="text-primary">Erkek</h5>
-                                                @*<p class="text-muted f-s-14">@item.City</p>*@
+                                                <p class="text-muted f-s-14">@item.WorkLocationName</p>
                                             </div>
                                         }
                                         else
                                         {
                                             <div class="col-lg-2">
                                                 <h5 class="text-danger">Kadın</h5>
-                                                @*<p class="text-muted f-s-14">@item.City</p>*@
+                                                <p class="text-muted f-s-14">@item.WorkLocationName</p>
                                             </div>
                                         }
-
                                         <div class="col-lg-3 text-right">
                                             <h5 class="text-muted"><i class="cc BTCD m-r-5"></i> <span class="BTCD m-l-10">@item.UserName</span></h5>
                                             <p class="f-s-13 text-muted">@item.PhoneNumber</p>
