@@ -1,0 +1,69 @@
+﻿@model List<ResultLast6BookingDto>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="active-member">
+                    <div class="table-responsive">
+                        <table class="table table-xs mb-0 text-center">
+                            <thead>
+                                <tr>
+                                    <th>İsim Soyisim</th>
+                                    <th>Mail</th>
+                                    <th>Konum</th>
+                                    <th>Status</th>
+                                    <th>Durum</th>
+                                    <th>Giriş - Çıkış Tarihleri</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.Name</td>
+                                        <td>@item.Mail</td>
+                                        <td>
+                                            <span>@item.Country</span>
+                                            <span>@item.City</span>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <div class="progress" style="height: 6px">
+                                                    <div class="progress-bar bg-success" style="width: 50%"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        @if (item.Status == "Onaylandı.")
+                                        {
+                                            <td><i class="fa fa-circle-o text-success  mr-2"></i> @item.Status</td>
+
+                                        }
+                                        else if (item.Status == "Onay bekliyor.")
+                                        {
+                                            <td><i class="fa fa-circle-o text-info  mr-2"></i> @item.Status</td>
+
+                                        }
+                                        else if (item.Status == "İptal edildi.")
+                                        {
+                                            <td><i class="fa fa-circle-o text-warning  mr-2"></i> @item.Status</td>
+
+                                        }
+                                        else
+                                        {
+                                            <td><i class="fa fa-circle-o text-danger  mr-2"></i> @item.Status</td>
+                                        }
+                                        <td>
+                                            <span>@(((DateTime)item.CheckIn).ToString("dd MMM yyyy"))</span>
+                                            <span class="m-0 pl-3">@(((DateTime)item.CheckOut).ToString("dd MMM yyyy"))</span>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

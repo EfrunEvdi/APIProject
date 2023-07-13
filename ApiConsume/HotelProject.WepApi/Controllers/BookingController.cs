@@ -65,5 +65,12 @@ namespace HotelProject.WepApi.Controllers
             var value = _bookingService.TGetByID(id);
             return Ok(value);
         }
+
+        [HttpGet("Last6Booking")]
+        public IActionResult Last6Booking()
+        {
+            var values = _bookingService.TLast6Bookings();
+            return Ok(values);
+        }
     }
 }

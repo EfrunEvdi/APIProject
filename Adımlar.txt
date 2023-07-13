@@ -1,2 +1,3 @@
-Room/Index ve detaylar sayfasý yapýlacak
-Footer
+Admin navbar düzeltilecek
+Ana sayfada static sayfalar yapýlacak
+Admin controllerýn adý düzeltilecek.

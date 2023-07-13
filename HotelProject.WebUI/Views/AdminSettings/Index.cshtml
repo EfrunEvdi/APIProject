@@ -1,0 +1,62 @@
+﻿@model HotelProject.WebUI.Models.Setting.UserEditViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<div class="row page-titles mx-0">
+    <div class="col p-md-0">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/Dashboard/Index">Ana Sayfa</a></li>
+            <li class="breadcrumb-item active"><a href="/AdminSenttings/Index">Profil Ayarları</a></li>
+        </ol>
+    </div>
+</div>
+
+
+<div class="col-lg-12">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Profil Ayarları</h4>
+            <div class="basic-form">
+                <form method="post">
+                    <div class="text-center py-3">
+                        <img style="width:35%;" src="@Model.ImageUrl" class="rounded-circle" alt="">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>İsim</label>
+                            <input type="text" asp-for="Name" class="form-control">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Soyisim</label>
+                            <input type="text" asp-for="Surname" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Email</label>
+                            <input type="email" asp-for="Email" class="form-control">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Kullanıcı Adı</label>
+                            <input type="text" asp-for="Username" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Şifre</label>
+                            <input type="password" asp-for="Password" class="form-control">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Şifre Tekrar</label>
+                            <input type="password" asp-for="ConfirmPassword" class="form-control" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-outline-primary col-12">Bilgilerimi Güncelle!</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -13,7 +13,7 @@ namespace HotelProject.DataAccessLayer.Concrete
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=APIDB;Integrated Security=True;");
+            optionsBuilder.UseSqlServer("Data Source=EFRUN\\SQLEXPRESS;Initial Catalog=APIDB;Integrated Security=True;");
         }
 
         public DbSet<About> Abouts { get; set; }
