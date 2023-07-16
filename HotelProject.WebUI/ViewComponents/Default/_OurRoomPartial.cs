@@ -26,7 +26,7 @@ namespace HotelProject.WebUI.ViewComponents.Default
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
                 var values = JsonConvert.DeserializeObject<List<ResultRoomDto>>(jsonData);
-                var roomList = values.Take(3).ToList();
+                var roomList = values.Take(6).ToList();
                 return View(roomList);
             }
 

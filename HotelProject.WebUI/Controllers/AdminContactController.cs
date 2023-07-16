@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,8 +22,21 @@ namespace HotelProject.WebUI.Controllers
         }
 
         [HttpGet]
-        public IActionResult AddSendMessage()
+        public async Task<IActionResult> AddSendMessage()
         {
+            var client2 = _httpClientFactory.CreateClient();
+            var responseMessage2 = await client2.GetAsync("http://localhost:63512/api/Contact/GetContactCount");
+
+            var client3 = _httpClientFactory.CreateClient();
+            var responseMessage3 = await client3.GetAsync("http://localhost:63512/api/SendMessage/GetSendMessageCount");
+
+            var jsonData2 = await responseMessage2.Content.ReadAsStringAsync();
+            TempData["ContactCount"] = jsonData2;
+
+            var jsonData3 = await responseMessage3.Content.ReadAsStringAsync();
+            TempData["SendMessageCount"] = jsonData3;
+
+
             return View();
         }
 
@@ -30,7 +44,9 @@ namespace HotelProject.WebUI.Controllers
         public async Task<IActionResult> AddSendMessage(CreateSendMessage createSendMessage)
         {
             createSendMessage.SenderMail = "admin@gmail.com";
+            createSendMessage.SenderName = "Admin";
             createSendMessage.Date = DateTime.Now;
+
             if (!ModelState.IsValid)
             {
                 return View();
@@ -63,7 +79,7 @@ namespace HotelProject.WebUI.Controllers
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<List<InboxContactDto>>(jsonData);
+                var values = JsonConvert.DeserializeObject<List<InboxContactDto>>(jsonData).OrderByDescending(x => x.Date).ToList();
 
                 var jsonData2 = await responseMessage2.Content.ReadAsStringAsync();
                 TempData["ContactCount"] = jsonData2;
@@ -82,10 +98,22 @@ namespace HotelProject.WebUI.Controllers
             var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync("http://localhost:63512/api/SendMessage");
 
+            var client2 = _httpClientFactory.CreateClient();
+            var responseMessage2 = await client2.GetAsync("http://localhost:63512/api/Contact/GetContactCount");
+
+            var client3 = _httpClientFactory.CreateClient();
+            var responseMessage3 = await client3.GetAsync("http://localhost:63512/api/SendMessage/GetSendMessageCount");
+
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<List<ResultSendboxDto>>(jsonData);
+                var values = JsonConvert.DeserializeObject<List<ResultSendboxDto>>(jsonData).OrderByDescending(x => x.Date).ToList();
+
+                var jsonData2 = await responseMessage2.Content.ReadAsStringAsync();
+                TempData["ContactCount"] = jsonData2;
+
+                var jsonData3 = await responseMessage3.Content.ReadAsStringAsync();
+                TempData["SendMessageCount"] = jsonData3;
 
                 return View(values);
             }
@@ -98,10 +126,23 @@ namespace HotelProject.WebUI.Controllers
             var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync($"http://localhost:63512/api/Contact/{id}");
 
+            var client2 = _httpClientFactory.CreateClient();
+            var responseMessage2 = await client2.GetAsync("http://localhost:63512/api/Contact/GetContactCount");
+
+            var client3 = _httpClientFactory.CreateClient();
+            var responseMessage3 = await client3.GetAsync("http://localhost:63512/api/SendMessage/GetSendMessageCount");
+
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
                 var value = JsonConvert.DeserializeObject<Dtos.ContactDto.GetMessageByIDDto>(jsonData);
+
+                var jsonData2 = await responseMessage2.Content.ReadAsStringAsync();
+                TempData["ContactCount"] = jsonData2;
+
+                var jsonData3 = await responseMessage3.Content.ReadAsStringAsync();
+                TempData["SendMessageCount"] = jsonData3;
+
                 return View(value);
             }
 
@@ -113,10 +154,22 @@ namespace HotelProject.WebUI.Controllers
             var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync($"http://localhost:63512/api/SendMessage/{id}");
 
+            var client2 = _httpClientFactory.CreateClient();
+            var responseMessage2 = await client2.GetAsync("http://localhost:63512/api/Contact/GetContactCount");
+
+            var client3 = _httpClientFactory.CreateClient();
+            var responseMessage3 = await client3.GetAsync("http://localhost:63512/api/SendMessage/GetSendMessageCount");
+
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
                 var value = JsonConvert.DeserializeObject<SGetMessageByIDDto>(jsonData);
+
+                var jsonData2 = await responseMessage2.Content.ReadAsStringAsync();
+                TempData["ContactCount"] = jsonData2;
+
+                var jsonData3 = await responseMessage3.Content.ReadAsStringAsync();
+                TempData["SendMessageCount"] = jsonData3;
                 return View(value);
             }
 

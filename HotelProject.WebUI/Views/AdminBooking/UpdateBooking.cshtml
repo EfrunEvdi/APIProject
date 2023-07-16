@@ -1,0 +1,79 @@
+﻿@model UpdateBookingDto
+
+@{
+    ViewData["Title"] = "UpdateBooking";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<div class="row page-titles mx-0">
+    <div class="col p-md-0">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/AdminBooking/Index">Rezervasyonlar</a></li>
+            <li class="breadcrumb-item active"><a href="/AdminBooking/UpdateBooking">Rezervasyon Güncelleme Sayfası</a></li>
+        </ol>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Rezervasyon Güncelleme Sayfası</h4>
+                    <p class="text-muted m-b-15 f-s-12">Rezervasyon bilgilerini <code>eksiksiz</code> doldurunuz.</p>
+                    <div class="basic-form">
+                        <form method="post">
+                            <input type="hidden" asp-for="BookingID" />
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Misafir Adı Soyadı</label>
+                                <input type="text" asp-for="Name" class="form-control input-rounded col-sm-10" placeholder="Misafir bilgilerini giriniz.">
+                            </div>
+                            <hr />
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Misafir Mail</label>
+                                <input type="text" asp-for="Mail" class="form-control input-rounded col-sm-10" placeholder="Misafir e-posta bilgisini giriniz.">
+                            </div>
+                            <hr />
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Giriş Tarihi</label>
+                                <input type="date" asp-for="CheckIn" class="form-control input-rounded col-sm-10" placeholder="Giriş tarihi bilgisini giriniz.">
+                            </div>
+                            <hr />
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Çıkış Tarihi</label>
+                                <input type="date" asp-for="CheckOut" class="form-control input-rounded col-sm-10" placeholder="Çıkış tarihi bilgisini giriniz.">
+                            </div>
+                            <hr />
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Yetişkin Sayısı</label>
+                                <input type="number" asp-for="AdultCount" class="form-control input-rounded col-sm-10" placeholder="Yetişkin sayısı bilgisini giriniz.">
+                            </div>
+                            <hr />
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Çocuk Sayısı</label>
+                                <input type="number" asp-for="ChildCount" class="form-control input-rounded col-sm-10" placeholder="Çocuk sayısı bilgisini giriniz.">
+                            </div>
+                            <hr />
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Oda Sayısı</label>
+                                <input type="number" asp-for="RoomCount" class="form-control input-rounded col-sm-10" placeholder="Oda sayısı bilgisini giriniz.">
+                            </div>
+                            <hr />
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Özel İstekler</label>
+                                <textarea type="text" asp-for="SpecialRequest" class="form-control input-rounded col-sm-10" placeholder="Özel istek bilgisini giriniz."></textarea>
+                            </div>
+                            <hr />
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Açıklama</label>
+                                <textarea type="text" asp-for="Description" class="form-control input-rounded col-sm-10" placeholder="Açıklama bilgisini giriniz."></textarea>
+                            </div>
+                            <hr />
+                            <button class="btn btn-outline-primary col-12">Rezervasyonu Güncelle!</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

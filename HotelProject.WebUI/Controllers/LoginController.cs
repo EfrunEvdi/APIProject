@@ -32,7 +32,7 @@ namespace HotelProject.WebUI.Controllers
 
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Staff");
+                    return RedirectToAction("Index", "Dashboard");
                 }
 
                 else
@@ -41,6 +41,12 @@ namespace HotelProject.WebUI.Controllers
                 }
             }
             return View();
+        }
+
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Default");
         }
     }
 }

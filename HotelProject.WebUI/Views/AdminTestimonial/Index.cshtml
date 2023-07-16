@@ -1,16 +1,15 @@
-﻿@model List<StaffViewModel>
+﻿@model List<TestimonialViewModel>
 
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
-
 }
 
 <div class="row page-titles mx-0">
     <div class="col p-md-0">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/Dashboard/Index">Ana Sayfa</a></li>
-            <li class="breadcrumb-item active"><a href="/Staff/Index">Personeller</a></li>
+            <li class="breadcrumb-item active"><a href="/AdminTestimonial/Index">Referanslar</a></li>
         </ol>
     </div>
 </div>
@@ -20,14 +19,14 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Personeller</h4>
+                    <h4 class="card-title">Referanslar</h4>
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped verticle-middle text-center">
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Personel Adı</th>
-                                    <th scope="col">Personel Ünvan</th>
+                                    <th scope="col">Referans Adı</th>
+                                    <th scope="col">Referans Ünvanı</th>
                                     <th scope="col">İşlemler</th>
                                 </tr>
                             </thead>
@@ -40,26 +39,26 @@
                                     string randomString = strings[randomIndex];
 
                                     <tr>
-                                        <td>@item.StaffID</td>
+                                        <td>@item.TestimonialID</td>
                                         <td>@item.Name</td>
                                         <td>
                                             <span class="label @randomString btn-rounded">@item.Title</span>
                                         </td>
                                         <td>
                                             <span>
-                                                <a href="#" data-toggle="tooltip" data-placement="top" title="Detaylar"><i class="fa fa-file-text-o color-primary"></i></a>
-                                                <a href="/Staff/UpdateStaff/@item.StaffID" data-toggle="tooltip" data-placement="top" title="Güncelle"><i class="fa fa-pencil color-muted m-r-5"></i></a>
-                                                <a href="/Staff/DeleteStaff/@item.StaffID" data-toggle="tooltip" data-placement="top" title="Sil"><i class="fa fa-close color-danger"></i></a>
+                                                <a href="/AdminTestimonial/UpdateTestimonial/@item.TestimonialID" data-toggle="tooltip" data-placement="top" title="Güncelle"><i class="fa fa-pencil color-muted m-r-5"></i></a>
+                                                <a href="/AdminTestimonial/DeleteTestimonial/@item.TestimonialID" data-toggle="tooltip" data-placement="top" title="Sil"><i class="fa fa-close color-danger"></i></a>
                                             </span>
                                         </td>
                                     </tr>
                                 }
                             </tbody>
                         </table>
-                        <a href="/Staff/AddStaff" class="btn btn-outline-primary col-12">Yeni Personel Ekle!</a>
+                        <a href="/AdminTestimonial/AddTestimonial" class="btn btn-outline-primary col-12">Yeni Referans Ekle!</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+

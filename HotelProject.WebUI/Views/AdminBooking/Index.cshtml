@@ -26,8 +26,7 @@
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Misafir</th>
-                                    <th scope="col">Giriş Tarihi</th>
-                                    <th scope="col">Çıkış Tarihi</th>
+                                    <th scope="col">Giriş Tarihi - Çıkış Tarihi</th>
                                     <th scope="col">Durum</th>
                                     <th scope="col">İşlemler</th>
                                 </tr>
@@ -43,20 +42,16 @@
                                     <tr>
                                         <td>@item.BookingID</td>
                                         <td>@item.Name</td>
-                                        <td>
-                                            <span class="label @randomString btn-rounded">@(((DateTime)item.CheckIn).ToString("dd MMMM yyyy"))</span>
-                                        </td>
-                                        <td>
-                                            <span class="label @randomString btn-rounded">@(((DateTime)item.CheckOut).ToString("dd MMMM yyyy"))</span>
-                                        </td>
+                                        <td>@(((DateTime)item.CheckIn).ToString("dd MMMM yyyy")) - @(((DateTime)item.CheckOut).ToString("dd MMMM yyyy"))</td>
+
                                         <td>
                                             <span class="label @randomString btn-rounded">@item.Status</span>
                                         </td>
                                         <td>
                                             <span>
-                                                <a href="#" data-toggle="tooltip" data-placement="top" title="Detaylar"><i class="fa fa-file-text-o color-primary"></i></a>
                                                 <a href="/AdminBooking/ApprovedReservation/@item.BookingID" data-toggle="tooltip" data-placement="top" title="Onayla"><i class="fa fa-check-square-o color-muted m-r-5"></i></a>
-                                                <a href="/AdminBooking/DeleteBooking/@item.BookingID" data-toggle="tooltip" data-placement="top" title="İptal Et"><i class="fa fa-close color-danger"></i></a>
+                                                <a href="/AdminBooking/WaitReservation/@item.BookingID" data-toggle="tooltip" data-placement="top" title="Beklet"><i class="fa fa-clock-o color-danger"></i></a>
+                                                <a href="/AdminBooking/CancelReservation/@item.BookingID" data-toggle="tooltip" data-placement="top" title="İptal Et"><i class="fa fa-close color-danger"></i></a>
                                                 <a href="/AdminBooking/UpdateBooking/@item.BookingID" data-toggle="tooltip" data-placement="top" title="Güncelle"><i class="fa fa-pencil color-muted m-r-5"></i></a>
                                             </span>
                                         </td>

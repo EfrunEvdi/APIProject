@@ -34,6 +34,8 @@ namespace HotelProject.WebUI.Controllers
         public async Task<IActionResult> AddBooking(CreateBookingDto createBookingDto)
         {
             createBookingDto.Status = "Onay bekliyor.";
+            createBookingDto.City = "İstanbul";
+            createBookingDto.Country = "Türkiye";
             createBookingDto.Description = string.Empty;
 
             var client = _httpClientFactory.CreateClient();

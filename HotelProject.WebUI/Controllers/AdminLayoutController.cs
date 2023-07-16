@@ -1,11 +1,23 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using HotelProject.EntityLayer.Concrete;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace HotelProject.WebUI.Controllers
 {
     public class AdminLayoutController : Controller
     {
-        public IActionResult _AdminLayout()
+        private readonly UserManager<AppUser> _userManager;
+
+        public AdminLayoutController(UserManager<AppUser> userManager)
         {
+            _userManager = userManager;
+        }
+
+        public async Task<IActionResult> _AdminLayout()
+        {
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            ViewBag.UserImage = user.ImageURL;
             return View();
         }
 
@@ -33,6 +45,7 @@ namespace HotelProject.WebUI.Controllers
         {
             return PartialView();
         }
+
         public PartialViewResult FooterPartial()
         {
             return PartialView();

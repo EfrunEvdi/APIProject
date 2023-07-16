@@ -1,0 +1,31 @@
+﻿@model List<InboxContactDto>
+
+<li class="icons dropdown">
+    <a href="javascript:void(0)" data-toggle="dropdown">
+        <i class="mdi mdi-email-outline"></i>
+        <span class="badge gradient-1 badge-pill badge-primary">3</span>
+    </a>
+    <div class="drop-down animated fadeIn dropdown-menu">
+        <div class="dropdown-content-heading d-flex justify-content-between">
+            <span class="">3 Yeni Mesaj</span>
+
+        </div>
+        <div class="dropdown-content-body">
+            <ul>
+                @foreach (var item in Model)
+                {
+                    <li class="notification-unread">
+                        <a href="javascript:void()">
+                            <img class="float-left mr-3 avatar-img" src="~/adminweb/images/loader.gif" alt="">
+                            <div class="notification-content">
+                                <div class="notification-heading">@item.Name</div>
+                                <div class="notification-timestamp">@(((DateTime)item.Date).ToString("dd MMMM yyyy"))</div>
+                                <div class="notification-text">@item.Subject</div>
+                            </div>
+                        </a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</li>

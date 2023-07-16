@@ -38,24 +38,10 @@ namespace HotelProject.WepApi.Controllers
             return Ok();
         }
 
-        [HttpPut("UpdateBooking")]
+        [HttpPut]
         public IActionResult UpdateBooking(Booking booking)
         {
             _bookingService.TUpdate(booking);
-            return Ok();
-        }
-
-        [HttpPut("UpdateReservation")]
-        public IActionResult UpdateReservation(Booking booking)
-        {
-            _bookingService.TBookingStatusChangeApproved(booking);
-            return Ok();
-        }
-
-        [HttpPut("UpdateReservation2")]
-        public IActionResult UpdateReservation2(int id)
-        {
-            _bookingService.TBookingStatusChangeApproved2(id);
             return Ok();
         }
 
@@ -71,6 +57,27 @@ namespace HotelProject.WepApi.Controllers
         {
             var values = _bookingService.TLast6Bookings();
             return Ok(values);
+        }
+
+        [HttpGet("BookingApproved")]
+        public IActionResult BookingApproved(int id)
+        {
+            _bookingService.TBookingStatusChangeApproved(id);
+            return Ok();
+        }
+
+        [HttpGet("BookingCancel")]
+        public IActionResult BookingCancel(int id)
+        {
+            _bookingService.TBookingStatusChangeCancel(id);
+            return Ok();
+        }
+
+        [HttpGet("BookingWait")]
+        public IActionResult BookingWait(int id)
+        {
+            _bookingService.TBookingStatusChangeWait(id);
+            return Ok();
         }
     }
 }

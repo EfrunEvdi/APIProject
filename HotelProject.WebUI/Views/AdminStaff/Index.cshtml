@@ -1,0 +1,64 @@
+﻿@model List<StaffViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+
+}
+
+<div class="row page-titles mx-0">
+    <div class="col p-md-0">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/Dashboard/Index">Ana Sayfa</a></li>
+            <li class="breadcrumb-item active"><a href="/AdminStaff/Index">Personeller</a></li>
+        </ol>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Personeller</h4>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped verticle-middle text-center">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Personel Adı</th>
+                                    <th scope="col">Personel Ünvan</th>
+                                    <th scope="col">İşlemler</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    Random random = new Random();
+                                    List<string> strings = new List<string>() { "gradient-1", "gradient-2", "gradient-3", "gradient-4", "gradient-5", "gradient-6", "gradient-7", "gradient-8", "gradient-9" };
+                                    int randomIndex = random.Next(strings.Count);
+                                    string randomString = strings[randomIndex];
+
+                                    <tr>
+                                        <td>@item.StaffID</td>
+                                        <td>@item.Name</td>
+                                        <td>
+                                            <span class="label @randomString btn-rounded">@item.Title</span>
+                                        </td>
+                                        <td>
+                                            <span>
+                                                <a href="/AdminStaff/UpdateStaff/@item.StaffID" data-toggle="tooltip" data-placement="top" title="Güncelle"><i class="fa fa-pencil color-muted m-r-5"></i></a>
+                                                <a href="/AdminStaff/DeleteStaff/@item.StaffID" data-toggle="tooltip" data-placement="top" title="Sil"><i class="fa fa-close color-danger"></i></a>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <a href="/AdminStaff/AddStaff" class="btn btn-outline-primary col-12">Yeni Personel Ekle!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
